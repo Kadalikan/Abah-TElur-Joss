@@ -1,0 +1,58 @@
+<div class="container">
+    <h4 class="text-dark">Nama Member</h4>
+    <hr>
+    <ul class="list-group my-2">
+        <% data.forEach(member=> { %>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <small class="text-dark">
+                            Nama
+                        </small> <br>
+                        <%= member.nama_member %>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <small class="text-dark">Alamat</small> <br />
+                         <%= member.alamat %>
+
+                    </div>
+
+                    <div class="col-lg-3">
+                        <small class="text-dark">Telepon</small> <br />
+                         <%= member.telepon %>
+
+                    </div>
+
+                    <div class="col-lg-1">
+                        <small class="text-dark">Aksi</small> <br />
+
+                        <!-- button edit -->
+                        <a href="/member/edit/<%= member.id %>">
+                            <button class="btn btn-sm btn-dark">
+                                Edit
+                            </button>
+                        </a>
+
+                        <!-- button delete -->
+                        <a href="/member/delete/<%= member.id %>"
+                            onclick="return confirm(`Apakah Anda yakin ingin menghapus data ini?`)">
+                            <button class="btn btn-sm btn-danger">
+                                Hapus
+                            </button>
+                        </a>
+
+                    </div>
+                </div>
+            </li>
+            <% }) %>
+    </ul>
+
+    <!-- button add new data -->
+    <a href="/member/add">
+        <button class="btn btn-md btn-success">
+            Tambah Data
+        </button>
+    </a>
+
+</div>
